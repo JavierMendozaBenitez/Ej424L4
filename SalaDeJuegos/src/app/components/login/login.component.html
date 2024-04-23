@@ -1,0 +1,18 @@
+<div class="colm-form">
+  <div class="form-container">
+    <input
+      name="email"
+      type="email"
+      placeholder="Email"
+      [(ngModel)]="usuario.email"/>
+
+    <input
+      type="password"
+      placeholder="Contraseña"
+      [(ngModel)]="usuario.pass"/>
+
+    <button class="btn-new login" (click)="login()">Iniciar Sesion</button>
+
+    <button class="btn-new registro" (click)="register()">Registrar nueva cuenta</button>
+  </div>
+</div>
