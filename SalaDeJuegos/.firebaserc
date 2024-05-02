@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "saladejuegosjaviermendoza": {
+      "hosting": {
+        "saladejuegos": [
+          "saladejuegosjaviermendoza"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "saladejuegosjaviermendoza"
+  }
+}

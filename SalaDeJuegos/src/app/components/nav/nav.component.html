@@ -1,0 +1,14 @@
+<nav>
+  <div>
+    <h1>{{this.authenticator.currentUser()?.nombrecompleto}}Sala de Juegos</h1>
+    <div>
+      @if(!this.authenticator.currentUser()){
+      <button class="route-button btn btn-dark m-1" type="button" [routerLink]="['/login']"> Iniciar Sesión </button>
+      <button class="route-button btn btn-dark m-1" type="button" [routerLink]="['/registro']"> Registrate </button>
+      }
+      @else{
+      <button class="route-button btn btn-dark m-1" type="button" (click)="finalizar()">Cerrar Sesión</button>
+      }
+    </div>
+  </div>
+</nav>

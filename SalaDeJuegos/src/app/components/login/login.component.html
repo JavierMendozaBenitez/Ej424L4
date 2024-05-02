@@ -1,18 +1,17 @@
-<div class="colm-form">
-  <div class="form-container">
-    <input
-      name="email"
-      type="email"
-      placeholder="Email"
-      [(ngModel)]="usuario.email"/>
-
-    <input
-      type="password"
-      placeholder="Contraseña"
-      [(ngModel)]="usuario.pass"/>
-
-    <button class="btn-new login" (click)="login()">Iniciar Sesion</button>
-
-    <button class="btn-new registro" (click)="register()">Registrar nueva cuenta</button>
+<form (ngSubmit)="enviar()">
+  <div>
+    <label for="mail">Correo:</label>
+    <input type="text" id="mail" [(ngModel)]="mail" name="mail" required>
   </div>
-</div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+  </div>
+  <button type="submit" class="route-button btn btn-dark m-1">Login</button>
+  <div>
+    <button type="button" class="route-button btn btn-dark m-1" (click)="relleno1()">Usuario 1</button>
+    <button type="button" class="route-button btn btn-dark m-1" (click)="relleno2()">Usuario 2</button>
+    <button type="button" class="route-button btn btn-dark m-1" (click)="relleno3()">Usuario 3</button>
+
+  </div>
+</form>

@@ -1,38 +1,17 @@
 import { Routes } from '@angular/router';
 
-import { ErrorComponent } from './components/error/error.component';
-// import { HomeComponent } from './components/home/home.component';
+// import { ErrorComponent } from './components/error/error.component';
+// // import { HomeComponent } from './components/home/home.component';
+// import { LoginComponent } from './components/login/login.component';
+import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 export const routes: Routes = [
-  {
-    path: 'home', // estoy en /bienvenida?
-    // loadComponent: () => import("./components/bienvenida/bienvenida.component"),
-    loadComponent: () => import('./components/home/home.component').then((m) => m.HomeComponent),
-  },
-  {
-    path: 'login', // estoy en /bienvenida?
-    // loadComponent: () => import("./components/login/login.component"),
-    loadComponent: () => import('./components/login/login.component').then((m) => m.LoginComponent),
-  },
-  {
-    path: 'quien-soy',
-    loadComponent: () => import('./components/quien-soy/quien-soy.component').then((m) => m.QuienSoyComponent),
-  },
-
-  // {path: '', component: HomeComponent},
-  // {
-  //   path: 'home',
-  //   redirectTo: 'home',
-  // },
-  {path: '', component: LoginComponent},
-  {
-    path: 'login',
-    redirectTo: 'login',
-  },
-  {
-    path: '**', //estoy en cualquier ruta?
-    component: ErrorComponent,
-  },
-
+  { path: 'home', loadComponent: () => import('./components/home/home.component').then(mod => mod.HomeComponent) },
+  { path: 'login', loadComponent: () => import('./components/login/login.component').then(mod => mod.LoginComponent) },
+  { path: 'registro', loadComponent: () => import('./components/registro/registro.component').then(mod => mod.RegistroComponent) },
+  { path: 'quien-soy', loadComponent: () => import('./components/quien-soy/quien-soy.component').then(mod => mod.QuienSoyComponent) },
+  // { path: '**', loadComponent: () => import('./components/error/error.component').then(mod => mod.ErrorComponent) },
 ];
