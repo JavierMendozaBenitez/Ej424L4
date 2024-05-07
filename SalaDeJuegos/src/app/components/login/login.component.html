@@ -1,17 +1,14 @@
-<form (ngSubmit)="enviar()">
-  <div>
-    <label for="mail">Correo:</label>
-    <input type="text" id="mail" [(ngModel)]="mail" name="mail" required>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required>
-  </div>
-  <button type="submit" class="route-button btn btn-dark m-1">Login</button>
-  <div>
-    <button type="button" class="route-button btn btn-dark m-1" (click)="relleno1()">Usuario 1</button>
-    <button type="button" class="route-button btn btn-dark m-1" (click)="relleno2()">Usuario 2</button>
-    <button type="button" class="route-button btn btn-dark m-1" (click)="relleno3()">Usuario 3</button>
+<div class="colm-form">
+  <div class="form-container">
+    <input class="route-button" name="email" type="email" placeholder="Email" [(ngModel)]="usuario.email" />
+    <input class="route-button" type="password" placeholder="Contraseña" [(ngModel)]="usuario.password" />
 
+    <button class="route-button" (click)="Login()">Ok</button>
+
+    <div>
+      <button type="button" class="route-button" (click)="relleno1()">Usuario 1</button>
+      <button type="button" class="route-button" (click)="relleno2()">Usuario 2</button>
+      <button type="button" class="route-button" (click)="relleno3()">Usuario 3</button>
+    </div>
   </div>
-</form>
+</div>

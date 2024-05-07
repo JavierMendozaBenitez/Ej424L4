@@ -1,57 +1,61 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
-import { Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, getDoc, getDocs, updateDoc } from '@angular/fire/firestore';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { LogService } from '../../services/log.service';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [RouterLink, CommonModule, FormsModule, RouterOutlet],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 
+export class LoginComponent implements OnInit {
 
-export class LoginComponent {
+  usuario = {
+    password: '',
+    email: ''
+  }
 
-  constructor(private authF: AuthService, private router: Router, private log: LogService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  mail: string = "";
-  password: string = "";
-
-  async enviar() {
-    await this.authF.login(this.mail, this.password);
-    console.log(this.mail);
-    this.log.guardarInfo(this.mail);
-    this.router.navigate(["/home"]);
-    this.mail = "";
-    this.password = "";
+  Login() {
+    console.log(this.usuario)
+    const { email, password } = this.usuario;
+    this.authService.login(email, password).then((res: any) => {
+      console.log("se logeo", res)
+      this.router.navigate(["/home"]);
+    })
   }
 
   relleno1() {
-    this.authF.login("test1@test.com", "test11");
+    this.authService.login("test10@test.com", "test1010");
     this.router.navigate(["/home"]);
-    this.mail = "";
-    this.password = "";
+    this.usuario.email = "";
+    this.usuario.password = "";
   }
 
   relleno2() {
-    this.authF.login("test2@test.com", "test22");
+    this.authService.login("test20@test.com", "test2020");
     this.router.navigate(["/home"]);
-    this.mail = "";
-    this.password = "";
+    this.usuario.email = "";
+    this.usuario.password = "";
   }
 
   relleno3() {
-    this.authF.login("test3@test.com", "test33");
+    this.authService.login("test30@test.com", "test3030");
     this.router.navigate(["/home"]);
-    this.mail = "";
-    this.password = "";
+    this.usuario.email = "";
+    this.usuario.password = "";
   }
+
+  LogOut() {
+    this.authService.logout();
+  }
+
+  ngOnInit(): void {
+  }
+
 }

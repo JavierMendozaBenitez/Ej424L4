@@ -1,2 +1,9 @@
-<h2>Home</h2>
-<button routerLink="/quien-soy" class="route-button btn btn-dark m-1">Quien soy</button>
+<div>
+  <div *ngIf="!(userLogged|async) as user; else elseBlock">
+    <app-login></app-login>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="titulo">Home</div>
+  </ng-template>
+</div>

@@ -1,14 +1,36 @@
-<nav>
-  <div>
-    <h1>{{this.authenticator.currentUser()?.nombrecompleto}}Sala de Juegos</h1>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Título</title>
+  <link rel="stylesheet" href="nav.component.css"> <!-- Aquí enlazas el archivo CSS -->
+</head>
+
+<body>
+  <!-- Tu contenido HTML aquí -->
+  <nav>
     <div>
-      @if(!this.authenticator.currentUser()){
-      <button class="route-button btn btn-dark m-1" type="button" [routerLink]="['/login']"> Iniciar Sesión </button>
-      <button class="route-button btn btn-dark m-1" type="button" [routerLink]="['/registro']"> Registrate </button>
-      }
-      @else{
-      <button class="route-button btn btn-dark m-1" type="button" (click)="finalizar()">Cerrar Sesión</button>
-      }
+      <h1 class="titulo">{{ getCurrentUserEmail() }} Sala de Juegos</h1>
+
+      <div class="divBotones">
+        @if(!isUserLoggedIn){
+        <button class="route-button" type="button" [routerLink]="['/login']"> Iniciar Sesión </button>
+        <button class="route-button" type="button" [routerLink]="['/registro']"> Registrate </button>
+        }@else{
+        <button class="route-button" type="button" (click)="finalizar()">Cerrar Sesión</button>
+        <button class="route-button" type="button" [routerLink]="['/chat']"> Chat </button>
+        <button class="route-button" type="button" [routerLink]="['/quien-soy']">Quien soy</button>
+        <button class="route-button" type="button" [routerLink]="['/juegos/ahorcado']"> Jugar
+          Ahorcado!!
+        </button>
+        <button class="route-button btn btn-dark m-1" type="button" [routerLink]="['/juegos/mayormenor']"> Juegar Mayor
+          o Menor!! </button>
+        }
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</body>
+
+</html>

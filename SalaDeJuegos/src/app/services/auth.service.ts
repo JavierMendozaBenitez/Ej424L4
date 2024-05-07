@@ -1,37 +1,84 @@
-import { Injectable, inject, signal } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile, user, User, authState } from '@angular/fire/auth';
-import { Observable, from } from 'rxjs';
-import { Usuario } from '../class/usuario';
-import { Person } from '../interfaces/person';
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { textChangeRangeIsUnchanged } from 'typescript';
+import { UsuariosService } from './usuarios.service';
+import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private auth = inject(Auth);
-  user$ = user(this.auth);
-  userState$ = authState(this.auth);
 
-  currentUser = signal<Person | null | undefined>(undefined)
+  public estaLogeado: boolean = false;
 
-  async resgistrar(email: string, password: string) {
-    await createUserWithEmailAndPassword(this.auth, email, password)
-      .then(response =>
-        updateProfile(response.user, { displayName: email })
-      ).catch(e => {
-        throw e;
-      });
+  constructor(private afauth: AngularFireAuth, private usuariosService: UsuariosService) { }
+
+  isUserLoggedIn(): Observable<boolean> {
+    return this.afauth.authState.pipe(
+      map(user => !!user)
+    );
   }
 
   async login(email: string, password: string) {
-    return await signInWithEmailAndPassword(this.auth, email, password);
+    try {
+
+      let respuesta = await this.afauth.signInWithEmailAndPassword(email, password)
+
+      await this.usuariosService.registrarInicioSesionUsuario(email);
+
+      await this.usuariosService.sumarUltimaSesion(email);
+
+      this.setLocalEmail(email);
+
+      console.log("Emailllll" + email);
+      return respuesta;
+
+    } catch (error) {
+      console.log('error en login: ', error);
+      return null;
+    }
+
   }
 
-  async logOut() {
-    return await signOut(this.auth);
+  async register(email: string, password: string) {
+    try {
+      let respuesta = await this.afauth.createUserWithEmailAndPassword(email, password);
+      this.setLocalEmail(email);
+
+      return respuesta;
+    } catch (error) {
+      console.log('error en register: ', error);
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Intente otra vez',
+        text: 'El email ya se encuentra en uso, utilice uno distinto',
+      })
+      return null;
+    }
   }
 
-  getUserLogged() {
-    return this.userState$;
+  setLocalEmail(email: string) {
+    localStorage.setItem('email', email);
+  }
+
+  deleteLocalEmail() {
+    localStorage.setItem('email', '');
+  }
+
+  getLocalEmail() {
+    return localStorage.getItem('email');
+  }
+
+
+  getUserLogged(): Observable<any> {
+    return this.afauth.authState;
+  }
+
+  logout() {
+    this.deleteLocalEmail();
+    this.afauth.signOut();
   }
 }

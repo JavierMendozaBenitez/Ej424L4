@@ -1,36 +1,38 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router, RouterLink } from '@angular/router';
-import { Usuario } from '../../class/usuario';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Usuario } from '../../class/usuario';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FormsModule, RouterOutlet],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })
+
 export class NavComponent implements OnInit {
-  authenticator = inject(AuthService);
-  router = inject(Router);
+  currentUserEmail: string | null = null;
+
+  isUserLoggedIn: boolean = false;
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.authenticator.user$.subscribe(person => {
-      if (person) {
-        this.authenticator.currentUser.set({
-          email: person.email!,
-          nombrecompleto: person.displayName!,
-          contraseña: ""
-        });
-      }
-      else {
-        this.authenticator.currentUser.set(null);
-      }
+    this.authService.isUserLoggedIn().subscribe(loggedIn => {
+      this.isUserLoggedIn = loggedIn;
+      console.log(this.isUserLoggedIn);
     });
   }
 
   finalizar() {
-    this.authenticator.logOut().then(() => this.router.navigateByUrl('/login'));
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
+
+  getCurrentUserEmail(): string | null {
+    return this.currentUserEmail;
   }
 }

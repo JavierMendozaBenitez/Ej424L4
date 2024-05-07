@@ -12,9 +12,10 @@ import { initializeApp as initializeApp_alias, provideFirebaseApp } from '@angul
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { DatePipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),
+  providers: [provideRouter(routes), DatePipe,
   importProvidersFrom(
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
