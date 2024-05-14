@@ -9,6 +9,99 @@ body {
   align-items: center;
 }
 
+.game-container {
+  width: 300px;
+  height: 600px;
+  border: 1px solid #000;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+.centrar {
+  font-size: 25px;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* Agrega flex-direction: column; */
+}
+
+.centrarGanar {
+  font-size: 25px;
+  text-align: center;
+  background: radial-gradient(circle, rgb(154, 0, 0) 40%, #5a000b);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 85%;
+  margin-top: 50%;
+}
+
+.autosSuperados {
+  font-size: 25px;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* .perder {
+  padding-top: 20px;
+  font-size: 25px;
+  color: white;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+.perder {
+  flex: 0 0 40%;
+  font-size: 25px;
+  text-align: center;
+  background: radial-gradient(circle, rgb(154, 0, 0) 40%, #5a000b);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.car {
+  width: 100px;
+  height: 150px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+}
+
+.obstacle {
+  width: 100px;
+  height: 150px;
+  background-color: blue;
+  position: absolute;
+  left: 0;
+}
+
+
+
+
+
+
 .card {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -18,8 +111,6 @@ body {
 
 .card-body {
   padding: 1rem;
-  width: 1000px;
-  height: 500px;
 }
 
 .card-title {
@@ -34,7 +125,10 @@ button {
   border-radius: 6px;
   border-width: 0px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #a60000;
+  background: radial-gradient(circle at top right, #5a000b 40%, rgb(154, 0, 0));
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {
@@ -42,12 +136,6 @@ button:hover {
   background-color: #000000;
 }
 
-.centrar {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 div.cuadro {
   width: 150px;
@@ -65,7 +153,7 @@ div.cuadro {
 }
 
 .numero {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
   padding: 35px;
 }

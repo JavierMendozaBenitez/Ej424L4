@@ -1,48 +1,59 @@
 body {
-  background-color: rgb(114, 1, 1);
-}
-
-nav {
-  background-color: rgb(102, 0, 0);
-  /* Fondo semi-transparente para el nav */
-  color: white;
-  /* Texto en color blanco */
-  padding: 20px;
-  /* Espaciado interno */
-  font-size: 20px;
-}
-
-h1 {
+  background: radial-gradient(circle, rgb(154, 0, 0) 40%, #5a000b);
   margin: 0;
-  /* Elimina el margen por defecto del h1 */
+  /* Elimina el margen predeterminado */
+  height: 83.5vh;
+  /* Establece la altura al 100% de la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border-radius: 6px;
+  border-color: #95a5a6;
+  border-width: 2px;
+}
+
+.card-header {
+  border-color: #000000;
+  border-width: 2px;
+  color: #edf1f2;
+  background: radial-gradient(circle at top right, #5a000b 40%, rgb(154, 0, 0));
+  font-weight: 600;
+}
+
+p {
+  display: block;
+  text-align: left;
+
+}
+
+.enviado {
+  color: black;
+  font-weight: 600;
+}
+
+.recibido {
+  color: rgb(37, 37, 37);
+}
+
+.contenedorMensajes {
+  height: 460px;
+  overflow-y: scroll;
 }
 
 .route-button {
-  color: rgb(114, 1, 1);
+  color: white;
   /* Texto de los botones en color blanco */
-  border: 2px solid rgb(114, 1, 1);
+  border: 2px solid white;
   /* Borde blanco */
-  background-color: rgb(255, 255, 255);
+  background: radial-gradient(circle at top right, #5a000b 40%, rgb(154, 0, 0));
   font-size: 20px;
-  margin-top: 1%;
+  border-radius: 5%;
 }
 
 .route-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
   /* Cambia el color de fondo al pasar el mouse */
-}
-
-.titulo {
-  margin-bottom: 1%;
-}
-
-.divBotones {
-  margin-top: 1%;
-}
-
-@media screen and (max-width: 600px) {
-  .nav-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
 }

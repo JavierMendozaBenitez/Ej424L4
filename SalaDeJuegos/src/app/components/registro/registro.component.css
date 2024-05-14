@@ -1,0 +1,53 @@
+body {
+  text-align: center;
+
+  background: radial-gradient(circle, rgb(185, 1, 1) 40%, #5a000b);
+  margin: 0;
+  /* Elimina el margen predeterminado */
+  height: 100vh;
+  /* Establece la altura al 100% de la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: inline-block;
+}
+
+.colm-form {
+  text-align: center;
+  /* Centra el contenido del contenedor */
+}
+
+.colm-form .form-container {
+  background: radial-gradient(circle, rgb(154, 0, 0) 40%, #5a000b);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  /* Centra horizontalmente el div */
+}
+
+
+.invalid {
+  color: red;
+  font-size: 11px;
+}
+
+.route-button {
+  color: white;
+  /* Texto de los botones en color blanco */
+  border: 2px solid white;
+  /* Borde blanco */
+  background-color: black;
+  font-size: 25px;
+  border-radius: 5%;
+}
+
+.route-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Cambia el color de fondo al pasar el mouse */
+}

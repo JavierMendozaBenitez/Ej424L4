@@ -114,7 +114,7 @@ export class AhorcadoComponent implements OnInit {
       this.usuarioSV.sumarPuntosAhorcado(this.usuarioLogeado.email, this.usuarioDatos?.Ahorcado + this.puntosJuego);
       this.reiniciarJuego();
     }
-    //console.log(this.palabraMostrada)
+    console.log(this.palabraMostrada)
   }
 
 

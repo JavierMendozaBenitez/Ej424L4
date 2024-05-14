@@ -1,14 +1,37 @@
-<div class="colm-form">
-  <div class="form-container">
-    <input class="route-button" name="email" type="email" placeholder="Email" [(ngModel)]="usuario.email" />
-    <input class="route-button" type="password" placeholder="Contraseña" [(ngModel)]="usuario.password" />
+<!DOCTYPE html>
+<html lang="es">
 
-    <button class="route-button" (click)="Login()">Ok</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Título</title>
+  <link rel="stylesheet" href="login.component.css">
+</head>
 
-    <div>
-      <button type="button" class="route-button" (click)="relleno1()">Usuario 1</button>
-      <button type="button" class="route-button" (click)="relleno2()">Usuario 2</button>
-      <button type="button" class="route-button" (click)="relleno3()">Usuario 3</button>
+<body>
+
+  <div class="container">
+    <div class="titulo">Login</div>
+
+    <div class="contenedor">
+      <div>
+        <input class="route-input" name="email" type="email" placeholder="Email" [(ngModel)]="usuario.email" />
+        <input class="route-input" type="password" placeholder="Contraseña" [(ngModel)]="usuario.password" />
+      </div>
+      <div>
+        <button class="route-button" (click)="Login()">Iniciar Sesión</button>
+      </div>
+      <div>
+        <button type="button" class="route-button" (click)="relleno1()">Usuario 1</button>
+      </div>
+      <div>
+        <button type="button" class="route-button" (click)="relleno2()">Usuario 2</button>
+      </div>
+      <div>
+        <button type="button" class="route-button" (click)="relleno3()">Usuario 3</button>
+      </div>
     </div>
   </div>
-</div>
+</body>
+
+</html>

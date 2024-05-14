@@ -5,11 +5,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tu Título</title>
-  <link rel="stylesheet" href="nav.component.css"> <!-- Aquí enlazas el archivo CSS -->
+  <!-- Enlace a Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Enlace al archivo CSS personalizado -->
+  <link rel="stylesheet" href="nav.component.css">
 </head>
 
 <body>
   <!-- Tu contenido HTML aquí -->
+  <nav class="navbar navbar-dark">
+    <div class="container">
+
+
+      <div class="divBotones">
+        <div class="titulo">{{ getCurrentUserEmail() }} Sala de Juegos</div>
+        @if(!isUserLoggedIn){
+        <button class="route-button" type="button" [routerLink]="['/login']"> Iniciar Sesión </button>
+        <button class="route-button" type="button" [routerLink]="['/registro']"> Registrate </button>
+        }@else{
+        <button class="route-button" type="button" (click)="finalizar()">Cerrar Sesión</button>
+        <button class="route-button" type="button" [routerLink]="['/chat']"> Chat </button>
+        <button class="route-button" type="button" [routerLink]="['/quien-soy']">Quien soy</button>
+        <button class="route-button" type="button" [routerLink]="['/juegos/ahorcado']"> Jugar
+          Ahorcado!!
+        </button>
+        <button class="route-button" type="button" [routerLink]="['/juegos/mayormenor']"> Juegar Mayor
+          o Menor!! </button>
+        <button class="route-button" type="button" [routerLink]="['/juegos/preguntados']"> Preguntados
+        </button>
+        <button class="route-button" type="button" [routerLink]="['/juegos/propio']"> Propio
+        </button>
+        }
+      </div>
+    </div>
+  </nav>
+
+  <!-- Scripts de Bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Título</title>
+  <link rel="stylesheet" href="nav.component.css">
+</head>
+
+<body>
   <nav>
     <div>
       <h1 class="titulo">{{ getCurrentUserEmail() }} Sala de Juegos</h1>
@@ -25,12 +74,16 @@
         <button class="route-button" type="button" [routerLink]="['/juegos/ahorcado']"> Jugar
           Ahorcado!!
         </button>
-        <button class="route-button btn btn-dark m-1" type="button" [routerLink]="['/juegos/mayormenor']"> Juegar Mayor
+        <button class="route-button" type="button" [routerLink]="['/juegos/mayormenor']"> Juegar Mayor
           o Menor!! </button>
+        <button class="route-button" type="button" [routerLink]="['/juegos/preguntados']"> Preguntados
+        </button>
+        <button class="route-button" type="button" [routerLink]="['/juegos/propio']"> Propio
+        </button>
         }
       </div>
     </div>
   </nav>
 </body>
 
-</html>
+</html> -->

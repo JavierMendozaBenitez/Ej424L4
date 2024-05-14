@@ -1,15 +1,15 @@
 body {
-  background-color: rgb(114, 1, 1);
+  background: radial-gradient(circle at top right, #5a000b 40%, rgb(154, 0, 0));
 }
 
 nav {
-  background-color: rgb(102, 0, 0);
   /* Fondo semi-transparente para el nav */
   color: white;
   /* Texto en color blanco */
   padding: 20px;
   /* Espaciado interno */
   font-size: 20px;
+  margin-right: 30%;
 }
 
 h1 {
@@ -20,10 +20,11 @@ h1 {
 .route-button {
   color: white;
   /* Texto de los botones en color blanco */
-  border: 1px solid white;
+  border: 2px solid white;
   /* Borde blanco */
   background-color: black;
   font-size: 20px;
+  border-radius: 5%;
 }
 
 .route-button:hover {
@@ -33,10 +34,16 @@ h1 {
 
 .titulo {
   margin-bottom: 1%;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 36px;
+  /* Asegura que el título esté siempre a la izquierda */
 }
 
 .divBotones {
   margin-top: 1%;
+  margin-left: 0;
+  /* Asegura que los botones estén siempre a la izquierda */
 }
 
 @media screen and (max-width: 600px) {

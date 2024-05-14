@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { JuegosRoutingModule } from './juegos-routing.module';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { MayormenorComponent } from './mayormenor/mayormenor.component';
-// import { TecladoComponent } from '../../components/teclado/teclado.component';
-// import { DialogModule } from 'primeng/dialog';
-// import { ButtonModule } from 'primeng/button';
+import { PreguntadosComponent } from './preguntados/preguntados.component';
+import { PropioComponent } from './propio/propio.component';
 
 @NgModule({
   declarations: [
     AhorcadoComponent,
-    MayormenorComponent
+    MayormenorComponent,
+    PreguntadosComponent,
+    PropioComponent
   ],
   imports: [CommonModule, JuegosRoutingModule],
   providers: [
     // MessageService
+
   ]
 })
 export class JuegosModule { }

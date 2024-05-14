@@ -1,0 +1,34 @@
+<body>
+  <div class="centrar" *ngIf="!crashed; else elseBlock">
+    <div class="autosSuperados">Autos superados: {{ sumaAutosPasados }}</div>
+    <div class="game-container">
+      <img src="../../../../assets/1.PNG" class="car" [style.left.px]="carLeftPosition" />
+      <img src="../../../../assets/{{this.numeroAuto1}}.PNG" class="obstacle" [style.left.px]="obstacleLeftPosition"
+        [style.bottom.px]="obstacleBottomPosition" />
+      <img src="../../../../assets/{{this.numeroAuto2}}.PNG" class="obstacle" [style.left.px]="obstacleLeftPosition2"
+        [style.bottom.px]="obstacleBottomPosition2" />
+
+      <div *ngIf="sumaAutosPasados == 20">
+        <div class="centrarGanar">
+          <div>¡Ganaste la carrera!</div>
+          <button class="mayor" (click)="startGame()" type="submit" id="propio" value="Propio">Jugar de nuevo</button>
+        </div>
+      </div>
+
+    </div>
+
+    <ng-template #elseBlock>
+      <div class="perder">
+        <div> ¡Perdiste! </div>
+        <div>Autos superados: {{ sumaAutosPasados }}</div>
+        <div class="centrar">
+          <button class="mayor" (click)="startGame()" type="submit" id="propio" value="Propio">Jugar de
+            nuevo</button>
+        </div>
+      </div>
+    </ng-template>
+
+
+
+  </div>
+</body>

@@ -13,6 +13,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), DatePipe,
@@ -25,7 +27,9 @@ export const appConfig: ApplicationConfig = {
   ), importProvidersFrom(provideFirebaseApp(() => initializeApp({ "projectId": "saladejuegosjaviermendoza", "appId": "1:1064678228262:web:4615e32dc803aee5c4c1e7", "storageBucket": "saladejuegosjaviermendoza.appspot.com", "apiKey": "AIzaSyC4Un1X9Wo8m5J3nrh0ncNJQeojyASRV3A", "authDomain": "saladejuegosjaviermendoza.firebaseapp.com", "messagingSenderId": "1064678228262" }))),
   importProvidersFrom(provideAuth(() => getAuth())),
   importProvidersFrom(provideFirestore(() => getFirestore())),
-  importProvidersFrom(provideStorage(() => getStorage()))]
+  importProvidersFrom(provideStorage(() => getStorage())),
+  importProvidersFrom(HttpClientModule),
+  importProvidersFrom(ToastrModule.forRoot())]
 
 };
 

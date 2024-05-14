@@ -1,7 +1,19 @@
+body {
+  background: radial-gradient(circle, rgb(154, 0, 0) 40%, #5a000b);
+  margin: 0;
+  /* Elimina el margen predeterminado */
+  height: 83.5vh;
+  /* Establece la altura al 100% de la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   display: flex;
   align-items: center;
   height: 500px;
+  background: radial-gradient(circle at top right, rgb(154, 0, 0) 40%, #5a000b);
 }
 
 
@@ -18,9 +30,17 @@
 }
 
 
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 1 / 2 / 2 / 3; }
-.div3 { grid-area: 1 / 3 / 2 / 5; }
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.div3 {
+  grid-area: 1 / 3 / 2 / 5;
+}
 
 .card {
   width: 1200px;
@@ -32,4 +52,8 @@
 
 .card-body {
   padding: 1rem;
+  background: radial-gradient(circle at top right, #5a000b 40%, rgb(154, 0, 0));
+  color: blanchedalmond;
+  font-size: 20px;
+  ;
 }

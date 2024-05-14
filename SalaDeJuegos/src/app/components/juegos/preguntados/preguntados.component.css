@@ -1,0 +1,71 @@
+body {
+  background: radial-gradient(circle, rgb(154, 0, 0) 40%, #5a000b);
+  margin: 0;
+  /* Elimina el margen predeterminado */
+  height: 83.5vh;
+  /* Establece la altura al 100% de la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-color: #c0382a;
+  border-width: 3px;
+}
+
+.card-body {
+  padding: 1rem;
+  width: 1000px;
+  height: 500px;
+}
+
+.card-title {
+  color: #c0382a;
+}
+
+button {
+  margin: 5px;
+  padding: 5px;
+  padding-inline: 15px;
+  color: white;
+  border-radius: 6px;
+  border-width: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #c0382a;
+}
+
+button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #d62713;
+}
+
+.centrar {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.cuadro {
+  min-width: 210px;
+  min-height: 150px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #c0382a;
+  border-width: 3px;
+  text-align: center;
+  background-color: rgba(234, 234, 234, 0.831);
+}
+
+.numero {
+  font-size: 50px;
+  font-weight: 700;
+  padding: 35px
+}
+
+img {
+  padding: 10px;
+}
